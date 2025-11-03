@@ -7,19 +7,21 @@
 
 # Organização das pastas
 
-📂 Anomalyzer/
-├─ README.md
-├─ requirements.txt
-├── data/
-│   └── nsl_kdd_sample.csv
-├── src/
-│   ├── preprocessamento.py
-│   ├── treinamento.py
-│   └── avaliacao.py
-├─ reports/
-│  └─ figures/
-└─ .gitignore
-
+```
+  📂 Anomalyzer/
+  .
+  ├─ README.md
+  ├─ requirements.txt
+  ├── data/
+  │   └── nsl_kdd_sample.csv
+  ├── src/
+  │   ├── preprocessamento.py
+  │   ├── treinamento.py
+  │   └── avaliacao.py
+  ├─ reports/
+  │  └─ figures/
+  └─ .gitignore
+```
 
 ### (EN) Machine Leaning Projeto focused on identifying anomalies in Network Traffic.
 
