@@ -10,7 +10,8 @@ Projeto de Machine Learning (ML) voltado a identificação de anomalias em Tráf
   ├─ README.md
   ├─ requirements.txt
   ├── data/
-  │   └── nsl_kdd_sample.csv
+  │   ├── NSL_KDD_Test.csv
+  │   └── NSL_KDD_Train.csv
   ├── src/
   │   ├── preprocessamento.py
   │   ├── treinamento.py
