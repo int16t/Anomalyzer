@@ -35,7 +35,8 @@ O projeto utiliza aprendizado supervisionado, com o modelo de classificação Ra
 Outro ponto relevante é a capacidade do modelo de exibir a importância das variáveis, permitindo visualizar quais atributos mais contribuem para a detecção de ataques. Por exemplo, o número de acessos de um mesmo IP pode indicar um ataque DoS, enquanto a variável flag pode ajudar a identificar tentativas de varredura de rede. Outras técnicas, como regressão logística, KNN ou redes neurais, foram consideradas, mas se mostraram menos adequadas: as primeiras por assumirem relações lineares ou apresentarem sensibilidade a ruídos, e as últimas por exigirem maior complexidade e poder computacional, fugindo do escopo do projeto. Assim, o Random Forest equilibra desempenho, interpretabilidade e simplicidade, sendo a escolha mais apropriada para o problema proposto.
 A avaliação do modelo foi realizada utilizando a métrica principal F1-score, por ser a mais adequada em problemas com classes desbalanceadas, como neste caso, em que há muito mais conexões legítimas do que ataques. Essa métrica combina precisão (precision) e revocação (recall), permitindo mensurar o equilíbrio entre a capacidade do modelo de identificar ataques e de evitar falsos alarmes. Dessa forma, um valor elevado de F1-score indica que o modelo é eficiente na detecção de atividades maliciosas, sem comprometer a confiabilidade das previsões.
 
-
+## Dataset
+O link para os arquivos utilizados como dataset para esse modelo de IA/ML pode ser encontrado diretamente no Kaggle: [Link](https://www.kaggle.com/datasets/mostafaashraf1/nsl-kdd/data).
 # Anomalyzer (EN)
 Machine Leaning Projeto focused on identifying anomalies in Network Traffic.
 
