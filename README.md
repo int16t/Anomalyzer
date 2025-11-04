@@ -15,15 +15,16 @@ Projeto de Machine Learning (ML) voltado a identificação de anomalias em Tráf
   ├── src/
   │   ├── preprocessamento.py
   │   ├── treinamento.py
-  │   └── avaliacao.py
+  │   ├── avaliacao.py
+  │   └── principal.py
   ├─ reports/
-  │  └─ figures/
+  │  └── figures/
   └─ .gitignore
 ```
 
 ## Equipe
 - Leonardo Gabriel Ramos dos Santos Souza (RA 2225201787)
-- Gabriel Landim Zillig (RA )
+- Gabriel Landim Zillig (RA 2224104595)
 - Turma: 41 - SA | Curso: Ciência da Computação | Período: Noturno | Ano: 2025
 
 ## Problema
