@@ -1,5 +1,7 @@
+from time import sleep
 from sklearn.ensemble import RandomForestClassifier
 import joblib
+from pathlib import Path
 
 def treinar_modelo(X_train, y_train, n_estimators=200, max_depth=None, random_state=42):
     """
@@ -12,9 +14,9 @@ def treinar_modelo(X_train, y_train, n_estimators=200, max_depth=None, random_st
     - random_state: Semente para reprodutibilidade(Garante uma aleatoridade controlada).
     """
 
-    print('+' * 20)
     print("Treinando o modelo RandomForestClassifier...")
-    print('+' * 20)
+    print('-=-' * 20)
+    sleep(2)
 
     modelo = RandomForestClassifier(
         n_estimators=n_estimators,
@@ -23,16 +25,30 @@ def treinar_modelo(X_train, y_train, n_estimators=200, max_depth=None, random_st
         n_jobs=-1  # Usa todos os núcleos do processador para acelerar o treinamento
     )
 
-    print('+' * 20)
     print("Modelo treinado com sucesso!")
-    print('+' * 20)
+    print('-=-' * 20)
+    sleep(1)
+
 
     modelo.fit(X_train, y_train)
     return modelo
 
-def salvar_modelo(modelo, caminho='modelo_randomforest.pkl'):
+def salvar_modelo(modelo, caminho=None):
     """
     Salva o modelo treinado em um arquivo para uso posterior.
+    Cria automaticamente o diretório se não existir.
     """
+    if caminho is None:
+        # Obtém o diretório do projeto e cria o caminho para a pasta models
+        BASE_DIR = Path(__file__).resolve().parent.parent
+        models_dir = BASE_DIR / 'models'
+        caminho = models_dir / 'modelo_randomforest.pkl'
+    else:
+        # Converte para Path se for string que o usuario digitar
+        caminho = Path(caminho)
+    
+    # Cria o diretório pai se não existir (funciona para qualquer caminho)
+    caminho.parent.mkdir(parents=True, exist_ok=True)
+    
     joblib.dump(modelo, caminho)
     print(f"Modelo salvo em: {caminho}")

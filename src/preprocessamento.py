@@ -1,3 +1,4 @@
+from time import sleep
 import pandas as pd
 from sklearn.preprocessing import StandardScaler
 
@@ -5,8 +6,20 @@ def carregar_dados(train_path, test_path):
     """
     Carrega os dados de treinamento e teste a partir dos caminhos fornecidos.
     """
-    train_df = pd.read_csv(train_path)
-    test_df = pd.read_csv(test_path)
+    # Nomes das colunas do dataset NSL-KDD
+    col_names = ['duration', 'protocol_type', 'service', 'flag', 'src_bytes', 'dst_bytes',
+                 'land', 'wrong_fragment', 'urgent', 'hot', 'num_failed_logins', 'logged_in',
+                 'num_compromised', 'root_shell', 'su_attempted', 'num_root', 'num_file_creations',
+                 'num_shells', 'num_access_files', 'num_outbound_cmds', 'is_host_login',
+                 'is_guest_login', 'count', 'srv_count', 'serror_rate', 'srv_serror_rate',
+                 'rerror_rate', 'srv_rerror_rate', 'same_srv_rate', 'diff_srv_rate',
+                 'srv_diff_host_rate', 'dst_host_count', 'dst_host_srv_count',
+                 'dst_host_same_srv_rate', 'dst_host_diff_srv_rate', 'dst_host_same_src_port_rate',
+                 'dst_host_srv_diff_host_rate', 'dst_host_serror_rate', 'dst_host_srv_serror_rate',
+                 'dst_host_rerror_rate', 'dst_host_srv_rerror_rate', 'label']
+    
+    train_df = pd.read_csv(train_path, names=col_names)
+    test_df = pd.read_csv(test_path, names=col_names)
     return train_df, test_df
 
 def limpar_dados(df):
@@ -39,6 +52,7 @@ def codificar_categorias(train_df, test_df, categorical_cols):
 def normalizar_dados(train_df, test_df, normalize=True):
     """
     Normaliza os dados numéricos usando StandardScaler se normalize for True.
+    Retorna os dataframes normalizados e o scaler utilizado.
     """
     scaler = None
     num_cols = train_df.select_dtypes(include=['float64', 'int64']).columns.difference(['label'])
@@ -50,7 +64,7 @@ def normalizar_dados(train_df, test_df, normalize=True):
         # Transformar os dados de teste
         test_df[num_cols] = scaler.transform(test_df[num_cols])
 
-    return train_df, test_df
+    return train_df, test_df, scaler
 
 def separar_features_labels(train_df, test_df):
     """
@@ -75,7 +89,8 @@ def preprocess(train_path, test_path, normalize=True):
     Retorna os conjuntos de dados prontos para modelagem.
     """
     print("Iniciando pré-processamento...")
-
+    print('-=-' * 20)
+    sleep(2)
     train_df, test_df = carregar_dados(train_path, test_path)
 
     train_df = limpar_dados(train_df)
@@ -91,5 +106,7 @@ def preprocess(train_path, test_path, normalize=True):
 
     X_train, y_train, X_test, y_test = separar_features_labels(train_df, test_df)
 
-    print("Pré-processamento concluído!\n")
+    print("Pré-processamento concluído!")
+    print('-=-' * 20)
+    sleep(1)
     return X_train, y_train, X_test, y_test, scaler
