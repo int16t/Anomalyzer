@@ -17,6 +17,8 @@ Projeto de Machine Learning (ML) voltado a identificação de anomalias em Tráf
   │   ├── treinamento.py
   │   ├── avaliacao.py
   │   └── principal.py
+  ├── models/
+  │   └── arquivo.pkl
   ├─ reports/
   │  └── figures/
   └─ .gitignore
