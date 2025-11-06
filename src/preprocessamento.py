@@ -109,4 +109,4 @@ def preprocess(train_path, test_path, normalize=True):
     print("Pré-processamento concluído!")
     print('-=-' * 20)
     sleep(1)
-    return X_train, y_train, X_test, y_test, scaler
+    return X_train, y_train, X_test, y_test, scaler, train_df
