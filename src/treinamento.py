@@ -3,7 +3,7 @@ from sklearn.ensemble import RandomForestClassifier
 import joblib
 from pathlib import Path
 
-def treinar_modelo(X_train, y_train, n_estimators=200, max_depth=None, random_state=42):
+def treinar_modelo(X_train, y_train, n_estimators=300, max_depth=None, random_state=42):
     """
     Treina um modelo de RandomForestClassifier.
     Parâmetros:
@@ -22,6 +22,7 @@ def treinar_modelo(X_train, y_train, n_estimators=200, max_depth=None, random_st
         n_estimators=n_estimators,
         max_depth=max_depth,
         random_state=random_state,
+        class_weight='balanced', # Aumenta o Recall mas diminui a precisão
         n_jobs=-1  # Usa todos os núcleos do processador para acelerar o treinamento
     )
 

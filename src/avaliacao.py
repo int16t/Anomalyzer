@@ -16,7 +16,8 @@ def avaliar_modelo(modelo, X_test, y_test):
     """
 
     # 1) Previsões do modelo
-    y_pred = modelo.predict(X_test)
+    y_probs = modelo.predict_proba(X_test)[:, 1]
+    y_pred = (y_probs >= 0.35).astype(int)
 
     # 2) Métrica principal
     f1 = f1_score(y_test, y_pred)
@@ -37,7 +38,7 @@ def avaliar_modelo(modelo, X_test, y_test):
 def salvar_grafico_distribuicao_classes(df, nome_arquivo = "distribuicao_classes.png"):
     """
     Gera e salva um gráfico de barras mostrando quantas amostras existem
-    de cada classe (normal x ataque).
+    de cada classe (normal x ataque) para o arquivo de teste.
     """
 
     # Garante que o diretório exista
@@ -50,7 +51,7 @@ def salvar_grafico_distribuicao_classes(df, nome_arquivo = "distribuicao_classes
     contagem = df_plot["label"].value_counts()
 
     # Cria o gráfico
-    plt.figure(figsize=(6,4))
+    plt.figure(figsize=(8,5))
     contagem.plot(kind='bar')
     plt.title("Distribuição de Classes no Dataset")
     plt.xlabel("Classe")
