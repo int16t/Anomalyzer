@@ -38,7 +38,8 @@ Outro ponto relevante é a capacidade do modelo de exibir a importância das var
 A avaliação do modelo foi realizada utilizando a métrica principal F1-score, por ser a mais adequada em problemas com classes desbalanceadas, como neste caso, em que há muito mais conexões legítimas do que ataques. Essa métrica combina precisão (precision) e revocação (recall), permitindo mensurar o equilíbrio entre a capacidade do modelo de identificar ataques e de evitar falsos alarmes. Dessa forma, um valor elevado de F1-score indica que o modelo é eficiente na detecção de atividades maliciosas, sem comprometer a confiabilidade das previsões.
 
 ## Dataset
-O link para os arquivos utilizados como dataset para esse modelo de IA/ML pode ser encontrado diretamente no Kaggle: [Link](https://www.kaggle.com/datasets/mostafaashraf1/nsl-kdd/data).
+- O link para os arquivos utilizados como dataset para esse modelo de IA/ML pode ser encontrado diretamente via Kaggle: [Link](https://www.kaggle.com/datasets/mostafaashraf1/nsl-kdd/data).
+- OBS: é um dataset público publicado pela Universidade de New Brunswick (UNB) através do projeto ISCX / CIC. [Link](https://www.unb.ca/cic/datasets/nsl.html)
 # Anomalyzer (EN)
 Machine Leaning Projeto focused on identifying anomalies in Network Traffic.
 
