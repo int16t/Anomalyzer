@@ -1,7 +1,9 @@
 from time import sleep
+from tqdm import tqdm
 from sklearn.ensemble import RandomForestClassifier
 import joblib
 from pathlib import Path
+from utils import linha, centralizar
 
 def treinar_modelo(X_train, y_train, n_estimators=300, max_depth=None, random_state=42):
     """
@@ -14,9 +16,10 @@ def treinar_modelo(X_train, y_train, n_estimators=300, max_depth=None, random_st
     - random_state: Semente para reprodutibilidade(Garante uma aleatoridade controlada).
     """
 
-    print("Treinando o modelo RandomForestClassifier...")
-    print('-=-' * 20)
-    sleep(2)
+    for x in tqdm(range(100),
+        desc="Treinando o modelo Random Forest",
+        ncols=100):
+        sleep(0.15)
 
     modelo = RandomForestClassifier(
         n_estimators=n_estimators,
@@ -26,9 +29,10 @@ def treinar_modelo(X_train, y_train, n_estimators=300, max_depth=None, random_st
         n_jobs=-1  # Usa todos os núcleos do processador para acelerar o treinamento
     )
 
-    print("Modelo treinado com sucesso!")
-    print('-=-' * 20)
+    print()
+    print(centralizar("Modelo treinado com sucesso!", 160))
     sleep(1)
+    linha('=', 160)
 
 
     modelo.fit(X_train, y_train)
@@ -52,4 +56,7 @@ def salvar_modelo(modelo, caminho=None):
     caminho.parent.mkdir(parents=True, exist_ok=True)
     
     joblib.dump(modelo, caminho)
+    print(centralizar("SALVANDO O MODELO", 160))
+    print()
     print(f"Modelo salvo em: {caminho}")
+    linha('=', 160)

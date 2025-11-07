@@ -1,12 +1,15 @@
 from sklearn.metrics import classification_report, confusion_matrix, f1_score, precision_recall_curve
 from datetime import datetime
+from pathlib import Path
+from utils import linha, centralizar
 import matplotlib.pyplot as plt
 import seaborn as sns
-import pandas as pd
 import os
 
 # Diretório para salvar os gráficos
-out_dir = "reports/figures"
+BASE_DIR = Path(__file__).resolve().parent.parent
+out_dir = BASE_DIR / 'reports' / 'figures'
+
 nome = f"matriz_confusao_{datetime.now().strftime('%Y%m%d_%H%M%S')}.png"
 
 def avaliar_modelo(modelo, X_test, y_test):
@@ -21,6 +24,8 @@ def avaliar_modelo(modelo, X_test, y_test):
 
     # 2) Métrica principal
     f1 = f1_score(y_test, y_pred)
+    linha('=', 160)
+    print(centralizar("MÉTRICAS", 160))
     print(f"F1-Score do modelo: {f1:.4f}\n")
 
     # 3) Relatório completo (Precision, Recall, F1 para cada classe)
@@ -32,10 +37,11 @@ def avaliar_modelo(modelo, X_test, y_test):
 
     print("Matriz de Confusão:")
     print(cm)
+    linha('=', 160)
 
     return cm, y_pred, f1
 
-def salvar_grafico_distribuicao_classes(df, nome_arquivo = "distribuicao_classes.png"):
+def salvar_grafico_distribuicao_classes(df, nome_arquivo = "distribuicao-classes-teste.png"):
     """
     Gera e salva um gráfico de barras mostrando quantas amostras existem
     de cada classe (normal x ataque) para o arquivo de teste.
@@ -53,21 +59,22 @@ def salvar_grafico_distribuicao_classes(df, nome_arquivo = "distribuicao_classes
     # Cria o gráfico
     plt.figure(figsize=(8,5))
     contagem.plot(kind='bar')
-    plt.title("Distribuição de Classes no Dataset")
+    plt.title("Distribuição de Classes no Dataset de Teste")
     plt.xlabel("Classe")
     plt.ylabel("Quantidade de Registros")
     
     # Caminho completo do arquivo
-    caminho_completo = os.path.join(out_dir, nome_arquivo)
+    caminho = out_dir / nome_arquivo
     
     # Salva a imagem
-    plt.savefig(caminho_completo, dpi=300, bbox_inches='tight')
+    plt.savefig(caminho, dpi=300, bbox_inches='tight')
     plt.show()
     plt.close()
+    print(centralizar("GRÁFICO DE DISTRIBUIÇÃO", 160))
+    print()
+    print(f"Gráfico de distribuição salvo em: {caminho}")
 
-    print(f"Gráfico de distribuição salvo em: {caminho_completo}")
-
-def plotar_barras_confusao(cm):
+def plotar_barras_confusao(cm, nome_arquivo="barras-matriz-confusao.png"):
     """
     Gera um gráfico de barras a partir da matriz de confusão.
     cm = [[TN, FP],
@@ -89,12 +96,19 @@ def plotar_barras_confusao(cm):
     plt.ylabel("Quantidade")
     plt.tight_layout()
 
-    caminho = os.path.join(out_dir, nome)
+    # caminho = os.path.join(out_dir, nome)
+
+    caminho = out_dir / nome_arquivo
+
     plt.savefig(caminho, dpi=300, bbox_inches='tight')
     plt.show()
     plt.close()
 
-def plotar_heatmap_confusao(cm):
+    print(centralizar("GRÁFICOS DE MATRIZ DE CONFUSÃO", 160))
+    print()
+    print(f"Gráfico de distribuição salvo em: {caminho}")
+
+def plotar_heatmap_confusao(cm, nome_arquivo="mapa-calor-matriz-confusao.png"):
     """
     Gera um heatmap a partir da matriz de confusão.
     cm = [[TN, FP],
@@ -110,21 +124,22 @@ def plotar_heatmap_confusao(cm):
     plt.xlabel("Classe Predita")
     plt.tight_layout()
 
-    caminho = os.path.join(out_dir, f"heatmap_{nome}")
+    figures_dir = BASE_DIR / 'reports' / 'figures'
+    caminho = figures_dir / nome_arquivo
     plt.savefig(caminho, dpi=300, bbox_inches='tight')
     plt.show()
     plt.close()
 
-def plot_precision_recall_f1(y_test, y_scores, nome_arquivo="precision_recall_curve.png"):
+    print(f"Gráfico de distribuição salvo em: {caminho}")
+
+def plot_precision_recall_f1(y_test, y_scores, nome_arquivo="curva-precision-recall.png"):
     """
     Plota a Curva Precision-Recall e salva em /reports/figures.
     y_test: rótulos reais (0 = Normal, 1 = Ataque)
     y_scores: probabilidade prevista do modelo para classe 'Ataque'
     """
     
-    # Garante que o diretório exista
-    os.makedirs(out_dir, exist_ok=True)
-
+    
     precision, recall, thresholds = precision_recall_curve(y_test, y_scores)
 
     plt.figure(figsize=(6,5))
@@ -134,9 +149,13 @@ def plot_precision_recall_f1(y_test, y_scores, nome_arquivo="precision_recall_cu
     plt.title("Curva Precision-Recall")
     plt.grid(True)
 
-    caminho_final = os.path.join(out_dir, nome_arquivo)
-    plt.savefig(caminho_final, dpi=300, bbox_inches='tight')
+    caminho = out_dir / nome_arquivo
+    plt.savefig(caminho, dpi=300, bbox_inches='tight')
+    
     plt.show()
     plt.close()
 
-    print(f"Curva Precision-Recall salva em: {caminho_final}")
+    linha("=", 160)
+    print(centralizar("GRÁFICO DE PRECISION-RECALL", 160))
+    print()
+    print(f"Curva Precision-Recall salva em: {caminho}")
