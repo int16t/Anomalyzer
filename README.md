@@ -1,6 +1,13 @@
 # Anomalyzer (PT) 
 Projeto de Machine Learning (ML) voltado a identificação de anomalias em Tráfego de Redes. 
 
+## Tecnologias Utilizadas
+
+![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffffff)
+![Pandas](https://img.shields.io/badge/pandas-%23150458.svg?style=for-the-badge&logo=pandas&logoColor=white)
+![scikit-learn](https://img.shields.io/badge/scikit--learn-%23F7931E.svg?style=for-the-badge&logo=scikit-learn&logoColor=white)
+![seaborn](https://img.shields.io/badge/seaborn-%2342a7f5.svg?style=for-the-badge&logo=seaborn&logoColor=white)
+
 ## Equipe
 - Leonardo Gabriel Ramos dos Santos Souza (RA 2225201787)
 - Gabriel Landim Zillig (RA 2224104595)
@@ -18,23 +25,31 @@ A avaliação do modelo foi realizada utilizando a métrica principal F1-score, 
 - O link para os arquivos utilizados como dataset para esse modelo de IA/ML pode ser encontrado diretamente via Kaggle: [Link](https://www.kaggle.com/datasets/mostafaashraf1/nsl-kdd/data).
 - OBS: é um dataset público, publicado pela Universidade de New Brunswick (UNB) através do projeto ISCX / CIC. [Link](https://www.unb.ca/cic/datasets/nsl.html)
 
-## Como Executar o Programa
+## Execução
+
+1. Clonar o repositório:
 ```bash
-# copiar repositório git
-git clone https://github.com/int16t/Anomalyzer.git
-
-# acessar pasta do repositório
-cd Anomalyzer/
-
-# ativar ambiente...
-python -m venv .venv
-
-# instalar dependencias  
-pip install -r requirements.txt
-
-# executar o programa
-python src/principal.py
+  git clone https://github.com/int16t/Anomalyzer.git
 ```
+2. Acessar pasta do repositório
+```bash
+  cd Anomalyzer/
+```
+3. Ativar ambiente...
+```bash
+  python -m venv .venv
+```
+
+4. Instalar dependencias  
+```bash
+  pip install -r requirements.txt
+```
+
+5. Executar o programa
+```bash
+  python src/principal.py
+```
+
 ## Organização das pastas
 ```
   📂 Anomalyzer/
@@ -56,7 +71,7 @@ python src/principal.py
   └─ .gitignore
 ```
 ## Resultados do Projeto
-TBD
+
 
 # Anomalyzer (EN)
 Machine Leaning Projeto focused on identifying anomalies in Network Traffic.
