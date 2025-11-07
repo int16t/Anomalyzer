@@ -1,6 +1,8 @@
 from time import sleep
+from tqdm import tqdm
 import pandas as pd
 from sklearn.preprocessing import StandardScaler
+from utils import linha, centralizar
 
 def carregar_dados(train_path, test_path):
     """
@@ -88,8 +90,9 @@ def preprocess(train_path, test_path, normalize=True):
     6. Separa features e labels.
     Retorna os conjuntos de dados prontos para modelagem.
     """
-    print("Iniciando pré-processamento...")
-    print('-=-' * 20)
+    linha('=', 160)
+    for x in tqdm(range(100), desc="Iniciando pré-processamento", ncols=100):
+        sleep(0.15)
     sleep(2)
     train_df, test_df = carregar_dados(train_path, test_path)
 
@@ -105,8 +108,8 @@ def preprocess(train_path, test_path, normalize=True):
     train_df, test_df, scaler = normalizar_dados(train_df, test_df, normalize)
 
     X_train, y_train, X_test, y_test = separar_features_labels(train_df, test_df)
-
-    print("Pré-processamento concluído!")
-    print('-=-' * 20)
+    print()
+    print(centralizar("Pré-processamento concluído!", 160))
     sleep(1)
-    return X_train, y_train, X_test, y_test, scaler, train_df
+    linha('=', 160)
+    return X_train, y_train, X_test, y_test, scaler, test_df
