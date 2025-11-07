@@ -60,6 +60,7 @@ A avaliação do modelo foi realizada utilizando a métrica principal F1-score, 
   │   ├── NSL_KDD_Test.csv
   │   └── NSL_KDD_Train.csv
   ├── src/
+  │   ├── utils.py
   │   ├── preprocessamento.py
   │   ├── treinamento.py
   │   ├── avaliacao.py
