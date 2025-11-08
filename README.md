@@ -25,6 +25,36 @@ A avaliação do modelo foi realizada utilizando a métrica principal F1-score, 
 - O link para os arquivos utilizados como dataset para esse modelo de IA/ML pode ser encontrado diretamente via Kaggle: [Link](https://www.kaggle.com/datasets/mostafaashraf1/nsl-kdd/data).
 - OBS: é um dataset público, publicado pela Universidade de New Brunswick (UNB) através do projeto ISCX / CIC. [Link](https://www.unb.ca/cic/datasets/nsl.html)
 
+## Instalação do Python
+
+1. Verifique se o Python já está instalado:
+```bash
+python --version
+ou
+python3 --version
+```
+2. Caso não esteja instalado, baixe em:
+```bash
+https://www.python.org/downloads/
+```
+3. Durante a instalação, marque a opção: (Windows)
+```bash
+"Add Python to PATH"
+```
+4. macOS: o Python pode ser instalado via Homebrew:
+```bash
+brew install python
+```
+5. Linux (Ubuntu/Debian):
+```bash
+sudo apt install python3
+```
+6. Após instalar, feche e reabra todos os terminais abertos e confirme a instalação:
+``` bash
+python --version
+(deve exibir algo como "Python 3.11.6")
+```
+
 ## Execução
 
 1. Clonar o repositório:
