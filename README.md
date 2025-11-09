@@ -37,7 +37,7 @@ python3 --version
 ```bash
 https://www.python.org/downloads/
 ```
-3. Durante a instalação, marque a opção: (Windows)
+3. Durante a instalação no Windows, marque a opção:
 ```bash
 "Add Python to PATH"
 ```
@@ -49,7 +49,7 @@ brew install python
 ```bash
 sudo apt install python3
 ```
-6. Após instalar, feche e reabra todos os terminais abertos e confirme a instalação:
+6. Após instalar, feche e reabra todos os terminais e confirme a instalação:
 ``` bash
 python --version
 (deve exibir algo como "Python 3.11.6")
