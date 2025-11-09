@@ -67,17 +67,17 @@ python --version
 ```
 3. Ativar ambiente...
 ```bash
-  python -m venv .venv
+  python3 -m venv .venv
 ```
 
 4. Instalar dependencias  
 ```bash
-  pip install -r requirements.txt
+  .venv/bin/pip install -r requirements.txt
 ```
 
 5. Executar o programa
 ```bash
-  python src/principal.py
+  python3 src/principal.py
 ```
 
 ## Organização das pastas
