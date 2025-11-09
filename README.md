@@ -95,6 +95,8 @@ python --version
   │   ├── treinamento.py
   │   ├── avaliacao.py
   │   └── principal.py
+  ├── notebooks/
+  │   └── arquivo.ipynb
   ├── models/
   │   └── arquivo.pkl
   ├─ reports/
