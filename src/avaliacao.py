@@ -1,7 +1,7 @@
 from sklearn.metrics import classification_report, confusion_matrix, f1_score, precision_recall_curve
 from datetime import datetime
 from pathlib import Path
-from utils import linha, centralizar
+from utils import linha, centralizar, plataforma
 import matplotlib.pyplot as plt
 import seaborn as sns
 import os
@@ -68,7 +68,9 @@ def salvar_grafico_distribuicao_classes(df, nome_arquivo = "distribuicao-classes
     
     # Salva a imagem
     plt.savefig(caminho, dpi=300, bbox_inches='tight')
-    plt.show()
+    
+    if plataforma() == 'Windows':
+        plt.show()
     plt.close()
     print(centralizar("GRÁFICO DE DISTRIBUIÇÃO", 160))
     print()
@@ -101,7 +103,9 @@ def plotar_barras_confusao(cm, nome_arquivo="barras-matriz-confusao.png"):
     caminho = out_dir / nome_arquivo
 
     plt.savefig(caminho, dpi=300, bbox_inches='tight')
-    plt.show()
+    
+    if plataforma() == 'Windows':
+        plt.show()
     plt.close()
 
     print(centralizar("GRÁFICOS DE MATRIZ DE CONFUSÃO", 160))
@@ -127,7 +131,9 @@ def plotar_heatmap_confusao(cm, nome_arquivo="mapa-calor-matriz-confusao.png"):
     figures_dir = BASE_DIR / 'reports' / 'figures'
     caminho = figures_dir / nome_arquivo
     plt.savefig(caminho, dpi=300, bbox_inches='tight')
-    plt.show()
+    
+    if plataforma() == 'Windows':
+        plt.show()
     plt.close()
 
     print(f"Gráfico de distribuição salvo em: {caminho}")
@@ -152,7 +158,8 @@ def plot_precision_recall_f1(y_test, y_scores, nome_arquivo="curva-precision-rec
     caminho = out_dir / nome_arquivo
     plt.savefig(caminho, dpi=300, bbox_inches='tight')
     
-    plt.show()
+    if plataforma() == 'Windows':
+        plt.show()
     plt.close()
 
     linha("=", 160)

@@ -35,3 +35,16 @@ ________  ________   ________  _____ ______   ________  ___           ___    ___
                                                                      ╲│___│╱                                       
                                                                                                                    
                                                                                                                    ANOMALYZER - DETECTOR DE ANOMALIAS NA REDE""")
+    
+def plataforma():
+    """
+    Verifica a plataforma do Anomalyzer.
+    """
+    import platform
+    sistema = platform.system()
+    if sistema == 'Windows':
+        return 'Windows'
+    elif sistema == 'Linux':
+        return 'Linux'
+    else:
+        return 'Desconhecido'
