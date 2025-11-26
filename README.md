@@ -104,6 +104,21 @@ python --version
   └─ .gitignore
 ```
 ## Resultados do Projeto
+Gráfico 1, intitulado como "Distribuição de Classes no Dataset de Teste", demonstra que há aproximadamente 13 mil registros de ataque e cerca de 9,7 mil registros normais. Este desbalanceamento leve ressalta a importância do uso de métricas como o F1-score, precision e recall, uma vez que a simples acurácia poderia mascarar erros relevantes de classificação. Além disso, a análise confirma que o dataset representa um cenário atípico do mundo real, porque na amostra utilizada para plotagem, os ataques aparecem em proporção maior que tráfegos legítimos
+
+![Distribuição de Classes](https://github.com/int16t/Anomalyzer/blob/main/reports/figures/distribuicao-classes-teste.png)
+
+---
+
+O Gráfico 2 apresenta a Curva Precision-Recall do modelo. Observa-se que, à medida que a revocação aumenta, a precisão tende a diminuir, indicando que, embora o modelo seja capaz de detectar a maior parte dos ataques, isso ocorre ao custo de um número maior de falsos positivos. Esse comportamento é comum em classificadores aplicados à detecção de tráfego de rede, onde os padrões são altamente variáveis e ruidosos.
+Nota-se também que a curva apresenta boa precisão até cerca de 0.6–0.7 de recall, sofrendo queda mais acentuada após esse ponto, o que sugere dificuldade do modelo em capturar os ataques mais sutis. No geral, o desempenho permanece consistente com o esperado para o tipo de problema e pode ser ajustado conforme o limiar de decisão desejado.
+
+![Curva Precision Recall](https://github.com/int16t/Anomalyzer/blob/main/reports/figures/curva-precision-recall.png)
+
+---
+Gráfico 3 exibe a distribuição entre TP, TN, FP e FN de forma visual. O modelo atingiu uma alta quantidade de verdadeiros positivos e verdadeiros negativos, demonstrando boa capacidade de distinguir comportamento normal e malicioso. No entanto, nota-se um volume considerável de falsos negativos, casos em que um ataque foi classificado como normal. Esse aspecto explica o F1-score final de aproximadamente 0,81, considerado satisfatório, mas indicando necessidade de melhorias, especialmente para reduzir a taxa de falsos negativos, algo crítico em cenários reais de segurança.
+
+![Barras Matriz Confusao](https://github.com/int16t/Anomalyzer/blob/main/reports/figures/barras-matriz-confusao.png)
 
 
 # Anomalyzer (EN)
