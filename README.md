@@ -1,4 +1,4 @@
-# Anomalyzer (PT) 
+# Anomalyzer 
 Projeto de Machine Learning (ML) voltado a identificação de anomalias em Tráfego de Redes. 
 
 ## Tecnologias Utilizadas
@@ -119,8 +119,4 @@ Nota-se também que a curva apresenta boa precisão até cerca de 0.6–0.7 de r
 Gráfico 3 exibe a distribuição entre TP, TN, FP e FN de forma visual. O modelo atingiu uma alta quantidade de verdadeiros positivos e verdadeiros negativos, demonstrando boa capacidade de distinguir comportamento normal e malicioso. No entanto, nota-se um volume considerável de falsos negativos, casos em que um ataque foi classificado como normal. Esse aspecto explica o F1-score final de aproximadamente 0,81, considerado satisfatório, mas indicando necessidade de melhorias, especialmente para reduzir a taxa de falsos negativos, algo crítico em cenários reais de segurança.
 
 ![Barras Matriz Confusao](https://github.com/int16t/Anomalyzer/blob/main/reports/figures/barras-matriz-confusao.png)
-
-
-# Anomalyzer (EN)
-Machine Leaning Projeto focused on identifying anomalies in Network Traffic.
 
