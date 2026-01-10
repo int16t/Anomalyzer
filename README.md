@@ -9,8 +9,8 @@ Projeto de Machine Learning (ML) voltado a identificação de anomalias em Tráf
 ![seaborn](https://img.shields.io/badge/seaborn-%2342a7f5.svg?style=for-the-badge&logo=seaborn&logoColor=white)
 
 ## Equipe
-- Leonardo Gabriel Ramos dos Santos Souza (RA 2225201787)
-- Gabriel Landim Zillig (RA 2224104595)
+- Leonardo Ramos
+- Gabriel Landim Zillig
 - Turma: 41 - SA | Curso: Ciência da Computação | Período: Noturno | Ano: 2025
 
 ## Problema
